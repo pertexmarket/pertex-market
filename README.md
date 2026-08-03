@@ -94,15 +94,21 @@
   <div class="section-title">📷 صور المنتجات في البوكس</div>
   <div class="grid-gallery">
     <div class="img-card">
-      <div class="img-wrapper">صورة المنتج 1</div>
+      <div class="img-wrapper">
+        <img src="img1.png" alt="شاحن السيارة السريع">
+      </div>
       <p>⚡ شاحن السيارة السريع 4 في 1</p>
     </div>
     <div class="img-card">
-      <div class="img-wrapper">صورة المنتج 2</div>
+      <div class="img-wrapper">
+        <img src="img2.png" alt="منافذ متعددة">
+      </div>
       <p>🔌 منافذ متعددة وكوابل مدمجة</p>
     </div>
     <div class="img-card">
-      <div class="img-wrapper">صورة المنتج 3</div>
+      <div class="img-wrapper">
+        <img src="img3.png" alt="حامل الهاتف">
+      </div>
       <p>📱 حامل الهاتف العالي الثبات</p>
     </div>
   </div>
@@ -368,11 +374,11 @@ function sendOrder() {
                 "🚚 *نوع التوصيل:* " + deliveryText + " (" + deliveryCost + " دج)\n" +
                 "💰 *المجموع الكلي:* " + total + " دج";
 
-  fetch("https://api.telegram.org/bot" + 8984328868:AAEjxhYfk_Iw6PhnSEIrsTZ3zCd_7zZHiLA + "/sendMessage", {
+  fetch("https://api.telegram.org/bot" + TELEGRAM_TOKEN + "/sendMessage", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      chat_id: 8765345419,
+      chat_id: TELEGRAM_CHAT_ID,
       text: message,
       parse_mode: 'Markdown'
     })

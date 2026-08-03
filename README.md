@@ -8,25 +8,23 @@
   @import url('https://fonts.googleapis.com/css2?family=Cairo:wght=400;600;700;900&display=swap');
   
   :root {
-    --bg-dark: #0f172a;       /* أزرق داكن فاخم */
-    --card-bg: #1e293b;      /* خلفية البطاقات */
-    --accent-gold: #f59e0b;  /* ذهبي مميز */
+    --bg-dark: #0f172a;
+    --card-bg: #1e293b;
+    --accent-gold: #f59e0b;
     --gold-hover: #d97706;
-    --text-light: #f8fafc;   /* نص أبيض */
-    --text-muted: #94a3b8;   /* رمادي للنصوص الثانوية */
+    --text-light: #f8fafc;
+    --text-muted: #94a3b8;
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family: 'Cairo', sans-serif; background: var(--bg-dark); color: var(--text-light); overflow-x: hidden; }
 
-  /* الهيدر والعرض */
   .hero { text-align: center; padding: 40px 16px 20px; background: linear-gradient(180deg, #020617 0%, var(--bg-dark) 100%); border-bottom: 2px solid rgba(245, 158, 11, 0.2); }
   .badge { background: rgba(245, 158, 11, 0.15); color: var(--accent-gold); padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; display: inline-block; margin-bottom: 12px; border: 1px solid var(--accent-gold); }
   .hero h1 { font-size: clamp(22px, 5vw, 36px); font-weight: 900; line-height: 1.3; margin-bottom: 10px; color: var(--text-light); }
   .hero p { font-size: 15px; color: var(--text-muted); max-width: 500px; margin: 0 auto 15px; }
   .price-tag { font-size: 28px; font-weight: 900; color: var(--accent-gold); text-shadow: 0 2px 10px rgba(245,158,11,0.3); margin-top: 10px; }
 
-  /* معرض الصور */
   .gallery-section { padding: 30px 16px; max-width: 900px; margin: 0 auto; }
   .section-title { text-align: center; font-size: 20px; font-weight: 700; margin-bottom: 20px; color: var(--accent-gold); }
   .grid-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
@@ -37,14 +35,12 @@
   .img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
   .img-card p { font-size: 14px; font-weight: 700; color: var(--text-light); }
 
-  /* مميزات العرض */
   .features { background: var(--card-bg); margin: 20px 16px; padding: 24px; border-radius: 18px; max-width: 700px; margin: 20px auto; border: 1px solid rgba(255,255,255,0.08); }
   .features h3 { font-size: 18px; color: var(--accent-gold); margin-bottom: 12px; }
   .features ul { list-style: none; }
   .features li { padding: 8px 0; font-size: 14px; color: var(--text-light); display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
   .features li:last-child { border-bottom: none; }
 
-  /* نموذج الطلب */
   .order-container { max-width: 550px; margin: 30px auto 50px; padding: 0 16px; }
   .order-card { background: #ffffff; color: #0f172a; padding: 28px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
   .order-card h3 { text-align: center; font-size: 20px; font-weight: 900; margin-bottom: 20px; color: #0f172a; }
@@ -70,8 +66,7 @@
   .btn-submit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(245,158,11,0.5); }
   .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  /* تصميم قسم الأسئلة الشائعة */
-  .faq-section { margin-top: 25px; pt-3; border-top: 2px dashed #e2e8f0; padding-top: 20px; }
+  .faq-section { margin-top: 25px; border-top: 2px dashed #e2e8f0; padding-top: 20px; }
   .faq-title { font-size: 16px; font-weight: 900; color: #0f172a; text-align: center; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 6px; }
   .faq-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 16px; margin-bottom: 10px; }
   .faq-question { font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
@@ -91,15 +86,15 @@
   <div class="section-title">📷 صور المنتجات في البوكس</div>
   <div class="grid-gallery">
     <div class="img-card">
-      <div class="img-wrapper"><img src="صورة1.jpg" alt="شاحن السيارة 4 في 1"></div>
+      <div class="img-wrapper"><img src="img1.png" alt="شاحن السيارة 4 في 1"></div>
       <p>⚡ شاحن السيارة السريع 4 في 1</p>
     </div>
     <div class="img-card">
-      <div class="img-wrapper"><img src="صورة2.jpg" alt="تفاصيل شاحن السيارة"></div>
+      <div class="img-wrapper"><img src="img2.png" alt="تفاصيل شاحن السيارة"></div>
       <p>🔌 منافذ متعددة وكوابل مدمجة</p>
     </div>
     <div class="img-card">
-      <div class="img-wrapper"><img src="صورة3.jpg" alt="حامل الهاتف الذكي"></div>
+      <div class="img-wrapper"><img src="img3.png" alt="حامل الهاتف الذكي"></div>
       <p>📱 حامل الهاتف العالي الثبات</p>
     </div>
   </div>
@@ -110,7 +105,7 @@
   <ul>
     <li>✅ **شاحن 4 في 1:** كوابل سريعة ومنافذ شحن متعددة لشحن أكثر من هاتف في وقت واحد.</li>
     <li>✅ **حامل هاتف ذكي:** تثبيت قوي ومقاوم لاهتزازات الطريق مع دوران 360 درجة.</li>
-    <li>✅ **تصصميم فاخر:** متوافق مع جميع أنواع السيارات ولا يأخذ مساحة كبيرة.</li>
+    <li>✅ **تصميم فاخر:** متوافق مع جميع أنواع السيارات ولا يأخذ مساحة كبيرة.</li>
     <li>✅ **ضمان الجودة:** حماية جهازك من التيار الزائد والحرارة.</li>
   </ul>
 </div>
@@ -161,7 +156,6 @@
 
     <button class="btn-submit" id="submit-btn" onclick="sendOrder()" disabled>تأكيد الطلب الآن</button>
 
-    <!-- قسم الأسئلة الشائعة -->
     <div class="faq-section">
       <div class="faq-title">❓ أسئلة شائعة</div>
       
@@ -180,84 +174,86 @@
 </div>
 
 <script>
-// 🔑 ضع بيانات التليغرام الخاصة بك هنا:
 const TELEGRAM_TOKEN = "ضع_توكن_البوت_هنا"; 
 const TELEGRAM_CHAT_ID = "ضع_معرف_الشات_هنا"; 
 
 const BOX_PRICE = 2990;
 
-// قائمة أسعار جميع الولايات الـ 58 (المنزل ، المكتب)
 const RATES = {
-  "01 - أدرار - Adrar": [1500, 750],
-  "02 - الشلف - Chlef": [900, 450],
-  "03 - الأغواط - Laghouat": [1000, 500],
-  "04 - أم البواقي - Oum El Bouaghi": [750, 450],
-  "05 - باتنة - Batna": [450, 300],
-  "06 - بجاية - Béjaïa": [800, 450],
-  "07 - بسكرة - Biskra": [750, 450],
-  "08 - بشار - Béchar": [1000, 500],
-  "09 - البليدة - Blida": [700, 450],
-  "10 - البويرة - Bouira": [900, 450],
-  "11 - تمنراست - Tamanrasset": [1700, 800],
-  "12 - تبسة - Tébessa": [900, 450],
-  "13 - تلمسان - Tlemcen": [950, 450],
-  "14 - تيارت - Tiaret": [950, 450],
-  "15 - تيزي وزو - Tizi Ouzou": [700, 450],
-  "16 - الجزائر - Alger": [700, 450],
-  "17 - الجلفة - Djelfa": [1050, 600],
-  "18 - جيجل - Jijel": [800, 450],
-  "19 - سطيف - Sétif": [700, 450],
-  "20 - سعيدة - Saïda": [900, 500],
-  "21 - سكيكدة - Skikda": [750, 450],
-  "22 - سيدي بلعباس - Sidi Bel Abbès": [800, 450],
-  "23 - عنابة - Annaba": [750, 450],
-  "24 - قالمة - Guelma": [750, 450],
-  "25 - قسنطينة - Constantine": [700, 450],
-  "26 - المدية - Médéa": [800, 450],
-  "27 - مستغانم - Mostaganem": [800, 450],
-  "28 - المسيلة - M'Sila": [800, 450],
-  "29 - معسكر - Mascara": [800, 450],
-  "30 - ورقلة - Ouargla": [900, 450],
-  "31 - وهران - Oran": [800, 450],
-  "32 - البيض - El Bayadh": [1150, 600],
-  "33 - إيليزي - Illizi": [1700, 750],
-  "34 - برج بوعريريج - Bordj Bou Arreridj": [700, 450],
-  "35 - بومرداس - Boumerdès": [700, 450],
-  "36 - الطارف - El Tarf": [750, 450],
-  "37 - تندوف - Tindouf": [1700, null],
-  "38 - تسمسيلت - Tissemsilt": [800, 450],
-  "39 - الوادي - El Oued": [900, 500],
-  "40 - خنشلة - Khenchela": [600, 450],
-  "41 - سوق أهراس - Souk Ahras": [700, 450],
-  "42 - تيبازة - Tipaza": [850, 450],
-  "43 - ميلة - Mila": [700, 450],
-  "44 - عين الدفلى - Aïn Defla": [800, 450],
-  "45 - النعامة - Naâma": [1050, 500],
-  "46 - عين تموشنت - Aïn Témouchent": [800, 450],
-  "47 - غرداية - Ghardaïa": [950, 600],
-  "48 - غليزان - Relizane": [800, 500],
-  "49 - تيميمون - Timimoun": [1400, null],
-  "50 - برج باجي مختار - Bordj Badji Mokhtar": [1500, null],
-  "51 - أولاد جلال - Ouled Djellal": [950, 500],
-  "52 - بني عباس - Béni Abbès": [1000, null],
-  "53 - إن صالح - In Salah": [1500, 750],
-  "54 - إن قزام - In Guezzam": [1550, null],
-  "55 - تقرت - Touggourt": [900, 500],
-  "56 - جانت - Djanet": [1600, 750],
-  "57 - المغير - El M'Ghair": [900, 500],
-  "58 - المنيعة - El Meniaa": [1000, null]
+  "01 - Adrar": [1500, 750],
+  "02 - Chlef": [900, 450],
+  "03 - Laghouat": [1000, 500],
+  "04 - Oum El Bouaghi": [750, 450],
+  "05 - Batna": [450, 300],
+  "06 - Béjaïa": [800, 450],
+  "07 - Biskra": [750, 450],
+  "08 - Béchar": [1000, 500],
+  "09 - Blida": [700, 450],
+  "10 - Bouira": [900, 450],
+  "11 - Tamanrasset": [1700, 800],
+  "12 - Tébessa": [900, 450],
+  "13 - Tlemcen": [950, 450],
+  "14 - Tiaret": [950, 450],
+  "15 - Tizi Ouzou": [700, 450],
+  "16 - Alger": [700, 450],
+  "17 - Djelfa": [1050, 600],
+  "18 - Jijel": [800, 450],
+  "19 - Sétif": [700, 450],
+  "20 - Saïda": [900, 500],
+  "21 - Skikda": [750, 450],
+  "22 - Sidi Bel Abbès": [800, 450],
+  "23 - Annaba": [750, 450],
+  "24 - Guelma": [750, 450],
+  "25 - Constantine": [700, 450],
+  "26 - Médéa": [800, 450],
+  "27 - Mostaganem": [800, 450],
+  "28 - M'Sila": [800, 450],
+  "29 - Mascara": [800, 450],
+  "30 - Ouargla": [900, 450],
+  "31 - Oran": [800, 450],
+  "32 - El Bayadh": [1150, 600],
+  "33 - Illizi": [1700, 750],
+  "34 - Bordj Bou Arreridj": [700, 450],
+  "35 - Boumerdès": [700, 450],
+  "36 - El Tarf": [750, 450],
+  "37 - Tindouf": [1700, null],
+  "38 - Tissemsilt": [800, 450],
+  "39 - El Oued": [900, 500],
+  "40 - Khenchela": [600, 450],
+  "41 - Souk Ahras": [700, 450],
+  "42 - Tipaza": [850, 450],
+  "43 - Mila": [700, 450],
+  "44 - Aïn Defla": [800, 450],
+  "45 - Naâma": [1050, 500],
+  "46 - Aïn Témouchent": [800, 450],
+  "47 - Ghardaïa": [950, 600],
+  "48 - Relizane": [800, 500],
+  "49 - Timimoun": [1400, null],
+  "50 - Bordj Badji Mokhtar": [1500, null],
+  "51 - Ouled Djellal": [950, 500],
+  "52 - Béni Abbès": [1000, null],
+  "53 - In Salah": [1500, 750],
+  "54 - In Guezzam": [1550, null],
+  "55 - Touggourt": [900, 500],
+  "56 - Djanet": [1600, 750],
+  "57 - El M'Ghair": [900, 500],
+  "58 - El Meniaa": [1000, null]
 };
 
 let currentDeliveryType = null;
 
-const selectWilaya = document.getElementById('wilaya');
-Object.keys(RATES).forEach(w => {
-  const opt = document.createElement('option');
-  opt.value = w; opt.textContent = w;
-  selectWilaya.appendChild(opt);
+document.addEventListener("DOMContentLoaded", function() {
+  const selectWilaya = document.getElementById('wilaya');
+  Object.keys(RATES).forEach(w => {
+    const opt = document.createElement('option');
+    opt.value = w; 
+    opt.textContent = w;
+    selectWilaya.appendChild(opt);
+  });
 });
 
 function updateDelivery() {
+  const selectWilaya = document.getElementById('wilaya');
   const w = selectWilaya.value;
   if (!w || !RATES[w]) return;
   
@@ -279,6 +275,7 @@ function updateDelivery() {
 }
 
 function setDelivery(type) {
+  const selectWilaya = document.getElementById('wilaya');
   const w = selectWilaya.value;
   if (!w || !RATES[w]) return;
   
@@ -291,6 +288,7 @@ function setDelivery(type) {
 }
 
 function calculateTotal() {
+  const selectWilaya = document.getElementById('wilaya');
   const w = selectWilaya.value;
   if (!w || !currentDeliveryType || !RATES[w]) {
     document.getElementById('submit-btn').disabled = true;
@@ -309,6 +307,7 @@ function calculateTotal() {
 }
 
 function sendOrder() {
+  const selectWilaya = document.getElementById('wilaya');
   const name = document.getElementById('fullname').value;
   const phone = document.getElementById('phone').value;
   const wilaya = selectWilaya.value;
@@ -334,11 +333,11 @@ function sendOrder() {
                   `🚚 **نوع التوصيل:** ${deliveryText} (${deliveryCost} دج)\n` +
                   `💰 **المجموع الكلي:** ${total} دج`;
 
-  fetch(`https://api.telegram.org/bot${8984328868:AAEjxhYfk_Iw6PhnSEIrsTZ3zCd_7zZHiLA}/sendMessage`, {
+  fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      chat_id: 8765345419,
+      chat_id: TELEGRAM_CHAT_ID,
       text: message,
       parse_mode: 'Markdown'
     })

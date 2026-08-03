@@ -128,6 +128,64 @@
       <label>الولاية</label>
       <select id="wilaya" onchange="updateDelivery()">
         <option value="">— اختر الولاية —</option>
+        <option value="01 - Adrar">01 - Adrar</option>
+        <option value="02 - Chlef">02 - Chlef</option>
+        <option value="03 - Laghouat">03 - Laghouat</option>
+        <option value="04 - Oum El Bouaghi">04 - Oum El Bouaghi</option>
+        <option value="05 - Batna">05 - Batna</option>
+        <option value="06 - Bejaia">06 - Bejaia</option>
+        <option value="07 - Biskra">07 - Biskra</option>
+        <option value="08 - Bechar">08 - Bechar</option>
+        <option value="09 - Blida">09 - Blida</option>
+        <option value="10 - Bouira">10 - Bouira</option>
+        <option value="11 - Tamanrasset">11 - Tamanrasset</option>
+        <option value="12 - Tebessa">12 - Tebessa</option>
+        <option value="13 - Tlemcen">13 - Tlemcen</option>
+        <option value="14 - Tiaret">14 - Tiaret</option>
+        <option value="15 - Tizi Ouzou">15 - Tizi Ouzou</option>
+        <option value="16 - Alger">16 - Alger</option>
+        <option value="17 - Djelfa">17 - Djelfa</option>
+        <option value="18 - Jijel">18 - Jijel</option>
+        <option value="19 - Setif">19 - Setif</option>
+        <option value="20 - Saida">20 - Saida</option>
+        <option value="21 - Skikda">21 - Skikda</option>
+        <option value="22 - Sidi Bel Abbes">22 - Sidi Bel Abbes</option>
+        <option value="23 - Annaba">23 - Annaba</option>
+        <option value="24 - Guelma">24 - Guelma</option>
+        <option value="25 - Constantine">25 - Constantine</option>
+        <option value="26 - Medea">26 - Medea</option>
+        <option value="27 - Mostaganem">27 - Mostaganem</option>
+        <option value="28 - Msila">28 - Msila</option>
+        <option value="29 - Mascara">29 - Mascara</option>
+        <option value="30 - Ouargla">30 - Ouargla</option>
+        <option value="31 - Oran">31 - Oran</option>
+        <option value="32 - El Bayadh">32 - El Bayadh</option>
+        <option value="33 - Illizi">33 - Illizi</option>
+        <option value="34 - Bordj Bou Arreridj">34 - Bordj Bou Arreridj</option>
+        <option value="35 - Boumerdes">35 - Boumerdes</option>
+        <option value="36 - El Tarf">36 - El Tarf</option>
+        <option value="37 - Tindouf">37 - Tindouf</option>
+        <option value="38 - Tissemsilt">38 - Tissemsilt</option>
+        <option value="39 - El Oued">39 - El Oued</option>
+        <option value="40 - Khenchela">40 - Khenchela</option>
+        <option value="41 - Souk Ahras">41 - Souk Ahras</option>
+        <option value="42 - Tipaza">42 - Tipaza</option>
+        <option value="43 - Mila">43 - Mila</option>
+        <option value="44 - Ain Defla">44 - Ain Defla</option>
+        <option value="45 - Naama">45 - Naama</option>
+        <option value="46 - Ain Temouchent">46 - Ain Temouchent</option>
+        <option value="47 - Ghardaia">47 - Ghardaia</option>
+        <option value="48 - Relizane">48 - Relizane</option>
+        <option value="49 - Timimoun">49 - Timimoun</option>
+        <option value="50 - Bordj Badji Mokhtar">50 - Bordj Badji Mokhtar</option>
+        <option value="51 - Ouled Djellal">51 - Ouled Djellal</option>
+        <option value="52 - Beni Abbes">52 - Beni Abbes</option>
+        <option value="53 - In Salah">53 - In Salah</option>
+        <option value="54 - In Guezzam">54 - In Guezzam</option>
+        <option value="55 - Touggourt">55 - Touggourt</option>
+        <option value="56 - Djanet">56 - Djanet</option>
+        <option value="57 - El Mghair">57 - El Mghair</option>
+        <option value="58 - El Meniaa">58 - El Meniaa</option>
       </select>
     </div>
 
@@ -242,19 +300,6 @@ var RATES = {
 
 var currentDeliveryType = null;
 
-// تعبئة الولايات فوراً بطلب مباشر
-window.onload = function() {
-  var selectWilaya = document.getElementById('wilaya');
-  for (var key in RATES) {
-    if (RATES.hasOwnProperty(key)) {
-      var opt = document.createElement('option');
-      opt.value = key;
-      opt.innerHTML = key;
-      selectWilaya.appendChild(opt);
-    }
-  }
-};
-
 function updateDelivery() {
   var selectWilaya = document.getElementById('wilaya');
   var w = selectWilaya.value;
@@ -337,7 +382,7 @@ function sendOrder() {
                 "🚚 *نوع التوصيل:* " + deliveryText + " (" + deliveryCost + " دج)\n" +
                 "💰 *المجموع الكلي:* " + total + " دج";
 
-  fetch("https://api.telegram.org/bot" 8984328868:AAEjxhYfk_Iw6PhnSEIrsTZ3zCd_7zZHiLA + "/sendMessage", {
+  fetch("https://api.telegram.org/bot" + 8984328868:AAEjxhYfk_Iw6PhnSEIrsTZ3zCd_7zZHiLA + "/sendMessage", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

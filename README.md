@@ -333,11 +333,11 @@ function sendOrder() {
                   `🚚 **نوع التوصيل:** ${deliveryText} (${deliveryCost} دج)\n` +
                   `💰 **المجموع الكلي:** ${total} دج`;
 
-  fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+  fetch(`https://api.telegram.org/bot${8984328868:AAEjxhYfk_Iw6PhnSEIrsTZ3zCd_7zZHiLA}/sendMessage`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      chat_id: TELEGRAM_CHAT_ID,
+      chat_id: 8765345419,
       text: message,
       parse_mode: 'Markdown'
     })

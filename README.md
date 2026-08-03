@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>عرض خاص: شاحن سيارة 4 في 1 + حامل هاتف ذكي</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght=400;600;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
   
   :root {
     --bg-dark: #0f172a;
@@ -31,7 +31,7 @@
   
   .img-card { background: var(--card-bg); border-radius: 16px; padding: 12px; border: 1px solid rgba(255,255,255,0.05); text-align: center; transition: 0.3s; }
   .img-card:hover { transform: translateY(-4px); border-color: var(--accent-gold); }
-  .img-wrapper { width: 100%; height: 240px; border-radius: 12px; overflow: hidden; background: #000; margin-bottom: 10px; }
+  .img-wrapper { width: 100%; height: 240px; border-radius: 12px; overflow: hidden; background: #000; margin-bottom: 10px; display:flex; align-items:center; justify-content:center; color:#64748b; font-size:13px; }
   .img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
   .img-card p { font-size: 14px; font-weight: 700; color: var(--text-light); }
 
@@ -56,6 +56,14 @@
   .delivery-btn.disabled-opt { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
   .delivery-btn .d-title { font-size: 12px; font-weight: 700; }
   .delivery-btn .d-price { font-size: 14px; font-weight: 900; color: #d97706; margin-top: 2px; }
+
+  .qty-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+  .qty-btn { position: relative; border: 2px solid #cbd5e1; border-radius: 12px; padding: 14px 10px; text-align: center; cursor: pointer; transition: 0.2s; background: #f8fafc; }
+  .qty-btn.active { border-color: var(--accent-gold); background: rgba(245, 158, 11, 0.1); box-shadow: 0 4px 14px rgba(245,158,11,0.2); }
+  .qty-btn .q-title { font-size: 13px; font-weight: 700; color: #1e293b; }
+  .qty-btn .q-price { font-size: 17px; font-weight: 900; color: #d97706; margin-top: 4px; }
+  .qty-btn .q-old { font-size: 12px; color: #94a3b8; text-decoration: line-through; margin-inline-start: 4px; }
+  .qty-btn .q-badge { position: absolute; top: -10px; right: 50%; transform: translateX(50%); background: #dc2626; color: #fff; font-size: 10px; font-weight: 900; padding: 3px 10px; border-radius: 10px; white-space: nowrap; }
 
   .summary { background: #f1f5f9; padding: 16px; border-radius: 12px; margin: 18px 0; border: 1px dashed #cbd5e1; }
   .summary-row { display: flex; justify-content: space-between; font-size: 14px; padding: 4px 0; color: #475569; }
@@ -86,15 +94,15 @@
   <div class="section-title">📷 صور المنتجات في البوكس</div>
   <div class="grid-gallery">
     <div class="img-card">
-      <div class="img-wrapper"><img src="img1.png" alt="شاحن السيارة 4 في 1"></div>
+      <div class="img-wrapper">صورة المنتج 1</div>
       <p>⚡ شاحن السيارة السريع 4 في 1</p>
     </div>
     <div class="img-card">
-      <div class="img-wrapper"><img src="img2.png" alt="تفاصيل شاحن السيارة"></div>
+      <div class="img-wrapper">صورة المنتج 2</div>
       <p>🔌 منافذ متعددة وكوابل مدمجة</p>
     </div>
     <div class="img-card">
-      <div class="img-wrapper"><img src="img3.png" alt="حامل الهاتف الذكي"></div>
+      <div class="img-wrapper">صورة المنتج 3</div>
       <p>📱 حامل الهاتف العالي الثبات</p>
     </div>
   </div>
@@ -103,10 +111,10 @@
 <div class="features">
   <h3>مميزات البوكس:</h3>
   <ul>
-    <li>✅ **شاحن 4 في 1:** كوابل سريعة ومنافذ شحن متعددة لشحن أكثر من هاتف في وقت واحد.</li>
-    <li>✅ **حامل هاتف ذكي:** تثبيت قوي ومقاوم لاهتزازات الطريق مع دوران 360 درجة.</li>
-    <li>✅ **تصميم فاخر:** متوافق مع جميع أنواع السيارات ولا يأخذ مساحة كبيرة.</li>
-    <li>✅ **ضمان الجودة:** حماية جهازك من التيار الزائد والحرارة.</li>
+    <li>✅ <strong>شاحن 4 في 1:</strong> كوابل سريعة ومنافذ شحن متعددة لشحن أكثر من هاتف في وقت واحد.</li>
+    <li>✅ <strong>حامل هاتف ذكي:</strong> تثبيت قوي ومقاوم لاهتزازات الطريق مع دوران 360 درجة.</li>
+    <li>✅ <strong>تصميم فاخر:</strong> متوافق مع جميع أنواع السيارات ولا يأخذ مساحة كبيرة.</li>
+    <li>✅ <strong>ضمان الجودة:</strong> حماية جهازك من التيار الزائد والحرارة.</li>
   </ul>
 </div>
 
@@ -128,65 +136,20 @@
       <label>الولاية</label>
       <select id="wilaya" onchange="updateDelivery()">
         <option value="">— اختر الولاية —</option>
-        <option value="01 - Adrar">01 - Adrar</option>
-        <option value="02 - Chlef">02 - Chlef</option>
-        <option value="03 - Laghouat">03 - Laghouat</option>
-        <option value="04 - Oum El Bouaghi">04 - Oum El Bouaghi</option>
-        <option value="05 - Batna">05 - Batna</option>
-        <option value="06 - Bejaia">06 - Bejaia</option>
-        <option value="07 - Biskra">07 - Biskra</option>
-        <option value="08 - Bechar">08 - Bechar</option>
-        <option value="09 - Blida">09 - Blida</option>
-        <option value="10 - Bouira">10 - Bouira</option>
-        <option value="11 - Tamanrasset">11 - Tamanrasset</option>
-        <option value="12 - Tebessa">12 - Tebessa</option>
-        <option value="13 - Tlemcen">13 - Tlemcen</option>
-        <option value="14 - Tiaret">14 - Tiaret</option>
-        <option value="15 - Tizi Ouzou">15 - Tizi Ouzou</option>
-        <option value="16 - Alger">16 - Alger</option>
-        <option value="17 - Djelfa">17 - Djelfa</option>
-        <option value="18 - Jijel">18 - Jijel</option>
-        <option value="19 - Setif">19 - Setif</option>
-        <option value="20 - Saida">20 - Saida</option>
-        <option value="21 - Skikda">21 - Skikda</option>
-        <option value="22 - Sidi Bel Abbes">22 - Sidi Bel Abbes</option>
-        <option value="23 - Annaba">23 - Annaba</option>
-        <option value="24 - Guelma">24 - Guelma</option>
-        <option value="25 - Constantine">25 - Constantine</option>
-        <option value="26 - Medea">26 - Medea</option>
-        <option value="27 - Mostaganem">27 - Mostaganem</option>
-        <option value="28 - Msila">28 - Msila</option>
-        <option value="29 - Mascara">29 - Mascara</option>
-        <option value="30 - Ouargla">30 - Ouargla</option>
-        <option value="31 - Oran">31 - Oran</option>
-        <option value="32 - El Bayadh">32 - El Bayadh</option>
-        <option value="33 - Illizi">33 - Illizi</option>
-        <option value="34 - Bordj Bou Arreridj">34 - Bordj Bou Arreridj</option>
-        <option value="35 - Boumerdes">35 - Boumerdes</option>
-        <option value="36 - El Tarf">36 - El Tarf</option>
-        <option value="37 - Tindouf">37 - Tindouf</option>
-        <option value="38 - Tissemsilt">38 - Tissemsilt</option>
-        <option value="39 - El Oued">39 - El Oued</option>
-        <option value="40 - Khenchela">40 - Khenchela</option>
-        <option value="41 - Souk Ahras">41 - Souk Ahras</option>
-        <option value="42 - Tipaza">42 - Tipaza</option>
-        <option value="43 - Mila">43 - Mila</option>
-        <option value="44 - Ain Defla">44 - Ain Defla</option>
-        <option value="45 - Naama">45 - Naama</option>
-        <option value="46 - Ain Temouchent">46 - Ain Temouchent</option>
-        <option value="47 - Ghardaia">47 - Ghardaia</option>
-        <option value="48 - Relizane">48 - Relizane</option>
-        <option value="49 - Timimoun">49 - Timimoun</option>
-        <option value="50 - Bordj Badji Mokhtar">50 - Bordj Badji Mokhtar</option>
-        <option value="51 - Ouled Djellal">51 - Ouled Djellal</option>
-        <option value="52 - Beni Abbes">52 - Beni Abbes</option>
-        <option value="53 - In Salah">53 - In Salah</option>
-        <option value="54 - In Guezzam">54 - In Guezzam</option>
-        <option value="55 - Touggourt">55 - Touggourt</option>
-        <option value="56 - Djanet">56 - Djanet</option>
-        <option value="57 - El Mghair">57 - El Mghair</option>
-        <option value="58 - El Meniaa">58 - El Meniaa</option>
       </select>
+    </div>
+
+    <label style="font-size:13px; font-weight:700; margin-bottom:6px; display:block; color:#334155;">اختر العرض</label>
+    <div class="qty-grid">
+      <div class="qty-btn active" id="btn-qty1" onclick="setQty(1)">
+        <div class="q-title">📦 قطعة واحدة</div>
+        <div class="q-price">2990 دج</div>
+      </div>
+      <div class="qty-btn" id="btn-qty2" onclick="setQty(2)">
+        <span class="q-badge">وفّر 1530 دج</span>
+        <div class="q-title">📦📦 قطعتين</div>
+        <div class="q-price">5450 دج <span class="q-old">5980 دج</span></div>
+      </div>
     </div>
 
     <label style="font-size:13px; font-weight:700; margin-bottom:6px; display:block; color:#334155;">نوع التوصيل</label>
@@ -207,7 +170,7 @@
     </div>
 
     <div class="summary">
-      <div class="summary-row"><span>سعر البوكس:</span><span>2990 دج</span></div>
+      <div class="summary-row"><span>سعر البوكس:</span><span id="sum-box">2990 دج</span></div>
       <div class="summary-row"><span>سعر التوصيل:</span><span id="sum-del">—</span></div>
       <div class="summary-row total"><span>المجموع الكلي:</span><span id="sum-total">—</span></div>
     </div>
@@ -232,10 +195,12 @@
 </div>
 
 <script>
-var TELEGRAM_TOKEN = "ضع_توكن_البوت_هنا"; 
-var TELEGRAM_CHAT_ID = "ضع_معرف_الشات_هنا"; 
+var TELEGRAM_TOKEN = "8984328868:AAEjxhYfk_Iw6PhnSEIrsTZ3zCd_7zZHiLA"; 
+var TELEGRAM_CHAT_ID = "8765345419"; 
 
-var BOX_PRICE = 2990;
+var QTY_PRICES = { 1: 2990, 2: 5450 };
+var currentQty = 1;
+var BOX_PRICE = QTY_PRICES[currentQty];
 
 var RATES = {
   "01 - Adrar": [1500, 750],
@@ -297,6 +262,25 @@ var RATES = {
   "57 - El Mghair": [900, 500],
   "58 - El Meniaa": [1000, 0]
 };
+
+document.addEventListener("DOMContentLoaded", function() {
+  var selectWilaya = document.getElementById("wilaya");
+  for (var wilaya in RATES) {
+    var option = document.createElement("option");
+    option.value = wilaya;
+    option.textContent = wilaya;
+    selectWilaya.appendChild(option);
+  }
+});
+
+function setQty(qty) {
+  currentQty = qty;
+  BOX_PRICE = QTY_PRICES[qty];
+  document.getElementById('btn-qty1').classList.toggle('active', qty === 1);
+  document.getElementById('btn-qty2').classList.toggle('active', qty === 2);
+  document.getElementById('sum-box').innerText = BOX_PRICE + ' دج';
+  calculateTotal();
+}
 
 var currentDeliveryType = null;
 
@@ -364,6 +348,7 @@ function sendOrder() {
   var deliveryText = currentDeliveryType === 'home' ? 'توصيل للمنزل' : 'توصيل للمكتب';
   var deliveryCost = currentDeliveryType === 'home' ? RATES[wilaya][0] : RATES[wilaya][1];
   var total = BOX_PRICE + deliveryCost;
+  var qtyText = currentQty === 2 ? 'قطعتين (عرض 5450 دج)' : 'قطعة واحدة';
 
   if(!name || !phone) {
     alert('يرجى كتابة الاسم ورقم الهاتف');
@@ -374,11 +359,12 @@ function sendOrder() {
   btn.disabled = true;
   btn.innerText = "جاري إرسال الطلب...";
 
-  var message = "🛒 *طلبية جديدة (بوكس السيارة 2990 دج)*\n\n" +
+  var message = "🛒 *طلبية جديدة (بوكس السيارة)*\n\n" +
                 "👤 *الاسم:* " + name + "\n" +
                 "📞 *الهاتف:* " + phone + "\n" +
                 "📍 *الولاية:* " + wilaya + "\n" +
                 "🏠 *العنوان/البلدية:* " + (address || 'غير محدد') + "\n" +
+                "📦 *الكمية:* " + qtyText + "\n" +
                 "🚚 *نوع التوصيل:* " + deliveryText + " (" + deliveryCost + " دج)\n" +
                 "💰 *المجموع الكلي:* " + total + " دج";
 

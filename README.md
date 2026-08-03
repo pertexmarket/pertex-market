@@ -174,99 +174,103 @@
 </div>
 
 <script>
-const TELEGRAM_TOKEN = "ضع_توكن_البوت_هنا"; 
-const TELEGRAM_CHAT_ID = "ضع_معرف_الشات_هنا"; 
+var TELEGRAM_TOKEN = "ضع_توكن_البوت_هنا"; 
+var TELEGRAM_CHAT_ID = "ضع_معرف_الشات_هنا"; 
 
-const BOX_PRICE = 2990;
+var BOX_PRICE = 2990;
 
-const RATES = {
+var RATES = {
   "01 - Adrar": [1500, 750],
   "02 - Chlef": [900, 450],
   "03 - Laghouat": [1000, 500],
   "04 - Oum El Bouaghi": [750, 450],
   "05 - Batna": [450, 300],
-  "06 - Béjaïa": [800, 450],
+  "06 - Bejaia": [800, 450],
   "07 - Biskra": [750, 450],
-  "08 - Béchar": [1000, 500],
+  "08 - Bechar": [1000, 500],
   "09 - Blida": [700, 450],
   "10 - Bouira": [900, 450],
   "11 - Tamanrasset": [1700, 800],
-  "12 - Tébessa": [900, 450],
+  "12 - Tebessa": [900, 450],
   "13 - Tlemcen": [950, 450],
   "14 - Tiaret": [950, 450],
   "15 - Tizi Ouzou": [700, 450],
   "16 - Alger": [700, 450],
   "17 - Djelfa": [1050, 600],
   "18 - Jijel": [800, 450],
-  "19 - Sétif": [700, 450],
-  "20 - Saïda": [900, 500],
+  "19 - Setif": [700, 450],
+  "20 - Saida": [900, 500],
   "21 - Skikda": [750, 450],
-  "22 - Sidi Bel Abbès": [800, 450],
+  "22 - Sidi Bel Abbes": [800, 450],
   "23 - Annaba": [750, 450],
   "24 - Guelma": [750, 450],
   "25 - Constantine": [700, 450],
-  "26 - Médéa": [800, 450],
+  "26 - Medea": [800, 450],
   "27 - Mostaganem": [800, 450],
-  "28 - M'Sila": [800, 450],
+  "28 - Msila": [800, 450],
   "29 - Mascara": [800, 450],
   "30 - Ouargla": [900, 450],
   "31 - Oran": [800, 450],
   "32 - El Bayadh": [1150, 600],
   "33 - Illizi": [1700, 750],
   "34 - Bordj Bou Arreridj": [700, 450],
-  "35 - Boumerdès": [700, 450],
+  "35 - Boumerdes": [700, 450],
   "36 - El Tarf": [750, 450],
-  "37 - Tindouf": [1700, null],
+  "37 - Tindouf": [1700, 0],
   "38 - Tissemsilt": [800, 450],
   "39 - El Oued": [900, 500],
   "40 - Khenchela": [600, 450],
   "41 - Souk Ahras": [700, 450],
   "42 - Tipaza": [850, 450],
   "43 - Mila": [700, 450],
-  "44 - Aïn Defla": [800, 450],
-  "45 - Naâma": [1050, 500],
-  "46 - Aïn Témouchent": [800, 450],
-  "47 - Ghardaïa": [950, 600],
+  "44 - Ain Defla": [800, 450],
+  "45 - Naama": [1050, 500],
+  "46 - Ain Temouchent": [800, 450],
+  "47 - Ghardaia": [950, 600],
   "48 - Relizane": [800, 500],
-  "49 - Timimoun": [1400, null],
-  "50 - Bordj Badji Mokhtar": [1500, null],
+  "49 - Timimoun": [1400, 0],
+  "50 - Bordj Badji Mokhtar": [1500, 0],
   "51 - Ouled Djellal": [950, 500],
-  "52 - Béni Abbès": [1000, null],
+  "52 - Beni Abbes": [1000, 0],
   "53 - In Salah": [1500, 750],
-  "54 - In Guezzam": [1550, null],
+  "54 - In Guezzam": [1550, 0],
   "55 - Touggourt": [900, 500],
   "56 - Djanet": [1600, 750],
-  "57 - El M'Ghair": [900, 500],
-  "58 - El Meniaa": [1000, null]
+  "57 - El Mghair": [900, 500],
+  "58 - El Meniaa": [1000, 0]
 };
 
-let currentDeliveryType = null;
+var currentDeliveryType = null;
 
-document.addEventListener("DOMContentLoaded", function() {
-  const selectWilaya = document.getElementById('wilaya');
-  Object.keys(RATES).forEach(w => {
-    const opt = document.createElement('option');
-    opt.value = w; 
-    opt.textContent = w;
-    selectWilaya.appendChild(opt);
-  });
-});
+// تعبئة الولايات فوراً بطلب مباشر
+window.onload = function() {
+  var selectWilaya = document.getElementById('wilaya');
+  for (var key in RATES) {
+    if (RATES.hasOwnProperty(key)) {
+      var opt = document.createElement('option');
+      opt.value = key;
+      opt.innerHTML = key;
+      selectWilaya.appendChild(opt);
+    }
+  }
+};
 
 function updateDelivery() {
-  const selectWilaya = document.getElementById('wilaya');
-  const w = selectWilaya.value;
+  var selectWilaya = document.getElementById('wilaya');
+  var w = selectWilaya.value;
   if (!w || !RATES[w]) return;
   
-  const [home, office] = RATES[w];
-  const btnOffice = document.getElementById('btn-office');
+  var home = RATES[w][0];
+  var office = RATES[w][1];
+  var btnOffice = document.getElementById('btn-office');
   
-  document.getElementById('p-home').textContent = home ? home + ' دج' : 'غير متوفر';
+  document.getElementById('p-home').innerText = home ? home + ' دج' : 'غير متوفر';
   
-  if (office !== null) {
-    document.getElementById('p-office').textContent = office + ' دج';
+  if (office > 0) {
+    document.getElementById('p-office').innerText = office + ' دج';
     btnOffice.classList.remove('disabled-opt');
   } else {
-    document.getElementById('p-office').textContent = 'غير متوفر';
+    document.getElementById('p-office').innerText = 'غير متوفر';
     btnOffice.classList.add('disabled-opt');
     if (currentDeliveryType === 'office') currentDeliveryType = null;
   }
@@ -275,11 +279,11 @@ function updateDelivery() {
 }
 
 function setDelivery(type) {
-  const selectWilaya = document.getElementById('wilaya');
-  const w = selectWilaya.value;
+  var selectWilaya = document.getElementById('wilaya');
+  var w = selectWilaya.value;
   if (!w || !RATES[w]) return;
   
-  if (type === 'office' && RATES[w][1] === null) return;
+  if (type === 'office' && RATES[w][1] === 0) return;
 
   currentDeliveryType = type;
   document.getElementById('btn-home').classList.toggle('active', type === 'home');
@@ -288,52 +292,52 @@ function setDelivery(type) {
 }
 
 function calculateTotal() {
-  const selectWilaya = document.getElementById('wilaya');
-  const w = selectWilaya.value;
+  var selectWilaya = document.getElementById('wilaya');
+  var w = selectWilaya.value;
   if (!w || !currentDeliveryType || !RATES[w]) {
     document.getElementById('submit-btn').disabled = true;
     return;
   }
 
-  const deliveryCost = currentDeliveryType === 'home' ? RATES[w][0] : RATES[w][1];
-  if (deliveryCost === null) {
+  var deliveryCost = currentDeliveryType === 'home' ? RATES[w][0] : RATES[w][1];
+  if (deliveryCost === 0 && currentDeliveryType === 'office') {
     document.getElementById('submit-btn').disabled = true;
     return;
   }
 
-  document.getElementById('sum-del').textContent = deliveryCost + ' دج';
-  document.getElementById('sum-total').textContent = (BOX_PRICE + deliveryCost) + ' دج';
+  document.getElementById('sum-del').innerText = deliveryCost + ' دج';
+  document.getElementById('sum-total').innerText = (BOX_PRICE + deliveryCost) + ' دج';
   document.getElementById('submit-btn').disabled = false;
 }
 
 function sendOrder() {
-  const selectWilaya = document.getElementById('wilaya');
-  const name = document.getElementById('fullname').value;
-  const phone = document.getElementById('phone').value;
-  const wilaya = selectWilaya.value;
-  const address = document.getElementById('address').value;
-  const deliveryText = currentDeliveryType === 'home' ? 'توصيل للمنزل' : 'توصيل للمكتب';
-  const deliveryCost = currentDeliveryType === 'home' ? RATES[wilaya][0] : RATES[wilaya][1];
-  const total = BOX_PRICE + deliveryCost;
+  var selectWilaya = document.getElementById('wilaya');
+  var name = document.getElementById('fullname').value;
+  var phone = document.getElementById('phone').value;
+  var wilaya = selectWilaya.value;
+  var address = document.getElementById('address').value;
+  var deliveryText = currentDeliveryType === 'home' ? 'توصيل للمنزل' : 'توصيل للمكتب';
+  var deliveryCost = currentDeliveryType === 'home' ? RATES[wilaya][0] : RATES[wilaya][1];
+  var total = BOX_PRICE + deliveryCost;
 
   if(!name || !phone) {
     alert('يرجى كتابة الاسم ورقم الهاتف');
     return;
   }
 
-  const btn = document.getElementById('submit-btn');
+  var btn = document.getElementById('submit-btn');
   btn.disabled = true;
-  btn.textContent = "جاري إرسال الطلب...";
+  btn.innerText = "جاري إرسال الطلب...";
 
-  const message = `🛒 **طلبية جديدة (بوكس السيارة 2990 دج)**\n\n` +
-                  `👤 **الاسم:** ${name}\n` +
-                  `📞 **الهاتف:** ${phone}\n` +
-                  `📍 **الولاية:** ${wilaya}\n` +
-                  `🏠 **العنوان/البلدية:** ${address || 'غير محدد'}\n` +
-                  `🚚 **نوع التوصيل:** ${deliveryText} (${deliveryCost} دج)\n` +
-                  `💰 **المجموع الكلي:** ${total} دج`;
+  var message = "🛒 *طلبية جديدة (بوكس السيارة 2990 دج)*\n\n" +
+                "👤 *الاسم:* " + name + "\n" +
+                "📞 *الهاتف:* " + phone + "\n" +
+                "📍 *الولاية:* " + wilaya + "\n" +
+                "🏠 *العنوان/البلدية:* " + (address || 'غير محدد') + "\n" +
+                "🚚 *نوع التوصيل:* " + deliveryText + " (" + deliveryCost + " دج)\n" +
+                "💰 *المجموع الكلي:* " + total + " دج";
 
-  fetch(`https://api.telegram.org/bot${8984328868:AAEjxhYfk_Iw6PhnSEIrsTZ3zCd_7zZHiLA}/sendMessage`, {
+  fetch("https://api.telegram.org/bot" 8984328868:AAEjxhYfk_Iw6PhnSEIrsTZ3zCd_7zZHiLA + "/sendMessage", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -342,21 +346,21 @@ function sendOrder() {
       parse_mode: 'Markdown'
     })
   })
-  .then(res => res.json())
-  .then(data => {
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
     if(data.ok) {
       alert('تم تسجيل طلبك بنجاح! وسنتصل بك قريباً لتأكيده.');
       location.reload();
     } else {
       alert('حدث خطأ أثناء إرسال الطلب، يرجى المحاولة لاحقاً.');
       btn.disabled = false;
-      btn.textContent = "تأكيد الطلب الآن";
+      btn.innerText = "تأكيد الطلب الآن";
     }
   })
-  .catch(err => {
+  .catch(function(err) {
     alert('تعذر الاتصال بالخادم، تحقق من الاتصال بالإنترنت.');
     btn.disabled = false;
-    btn.textContent = "تأكيد الطلب الآن";
+    btn.innerText = "تأكيد الطلب الآن";
   });
 }
 </script>
